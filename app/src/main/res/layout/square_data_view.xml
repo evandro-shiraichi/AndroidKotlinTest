@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.SquareDataFragment">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="com.android.example.my_sudoku.model.NumberEnum" />
+        <variable
+            name="squareData"
+            type="com.android.example.my_sudoku.model.SquareData" />
+        <variable
+            name="viewModel"
+            type="com.android.example.my_sudoku.view_model.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{() -> viewModel.onClickSquareData(squareData)}"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:autoSizeTextType="uniform"
+            android:gravity="center"
+            app:autoSizeMaxTextSize="10000sp"
+            android:text="0" />
+        <TextView
+            android:id="@+id/memo1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="1"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/memo4"
+            app:layout_constraintEnd_toStartOf="@+id/memo2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="@{squareData.memo1Visibility}" />
+
+        <TextView
+            android:id="@+id/memo2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="2"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/memo5"
+            app:layout_constraintEnd_toStartOf="@+id/memo3"
+            app:layout_constraintStart_toEndOf="@+id/memo1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="@{squareData.contains(NumberEnum.Two) ? View.VISIBLE : View.INVISIBLE}" />
+
+        <TextView
+            android:id="@+id/memo3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="3"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/memo6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/memo2"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="@{squareData.contains(NumberEnum.Three) ? View.VISIBLE : View.INVISIBLE}" />
+
+        <TextView
+            android:id="@+id/memo4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="4"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/memo7"
+            app:layout_constraintEnd_toStartOf="@+id/memo5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/memo1"
+            android:visibility="@{squareData.contains(NumberEnum.Four) ? View.VISIBLE : View.INVISIBLE}" />
+
+        <TextView
+            android:id="@+id/memo5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="5"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/memo8"
+            app:layout_constraintEnd_toStartOf="@+id/memo6"
+            app:layout_constraintStart_toEndOf="@+id/memo4"
+            app:layout_constraintTop_toBottomOf="@+id/memo2"
+            android:visibility="@{squareData.contains(NumberEnum.Five) ? View.VISIBLE : View.INVISIBLE}" />
+
+        <TextView
+            android:id="@+id/memo6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="6"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/memo9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/memo5"
+            app:layout_constraintTop_toBottomOf="@id/memo3"
+            android:visibility="@{squareData.contains(NumberEnum.Six) ? View.VISIBLE : View.INVISIBLE}"/>
+
+        <TextView
+            android:id="@+id/memo7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="7"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toStartOf="@id/memo8"
+            app:layout_constraintTop_toBottomOf="@id/memo4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="@{squareData.contains(NumberEnum.Seven) ? View.VISIBLE : View.INVISIBLE}" />
+
+        <TextView
+            android:id="@+id/memo8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="8"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintTop_toBottomOf="@id/memo5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/memo9"
+            app:layout_constraintStart_toEndOf="@+id/memo7"
+            android:visibility="@{squareData.contains(NumberEnum.Eight) ? View.VISIBLE : View.INVISIBLE}" />
+
+        <TextView
+            android:id="@+id/memo9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="9"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintTop_toBottomOf="@id/memo6"
+            app:layout_constraintStart_toEndOf="@id/memo8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="@{squareData.contains(NumberEnum.Nine) ? View.VISIBLE : View.INVISIBLE}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
